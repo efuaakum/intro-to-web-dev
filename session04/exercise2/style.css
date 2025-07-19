@@ -1,0 +1,61 @@
+body {
+    font-size: 18px;
+    font-family: 'Lora', serif;
+    background-color: #F8F8F8;
+    /* Very light grey */
+}
+
+a {
+    color: rgb(0, 100, 0);
+    /* Dark green */
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(255, 165, 0);
+    /* Orange on hover */
+}
+
+li {
+    border-bottom: 1px dashed #CCC;
+}
+
+h1 {
+    color: darkgreen;
+    padding: 10px;
+}
+
+p {
+    margin: 20px;
+}
+
+.highlight {
+    background-color: yellow;
+    color: purple;
+    font-weight: bold;
+}
+
+.box-style {
+    border: 2px solid grey;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+}
+.lora{
+    font-family: 'Lora', serif;
+}
+.pacifico{
+    font-family: 'pacifico', serif;
+}
+.bitcount{
+    font-family: 'Bitcount Grid Single', system-ui;
+}
+.bebas{
+    font-family: 'Bebas Neue', sans-serif;
+}
+.nota{
+    font-family: 'Noto Sans', sans-serif;
+}
+.noto-color-emoji-regular{
+    font-family: 'Noto Color Emoji', san-serif;
+}
