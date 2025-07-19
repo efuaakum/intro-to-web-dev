@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Hello Styled World</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bitcount+Grid+Single:wght@100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Color+Emoji&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div id="hoverBox"
+    style="width: 150px; height: 100px; background-color: lightgrey; text-align: center; line-height: 100px;">Hover Over
+    Me!</div>
+  <input type="text" id="myInput" placeholder="Type something...">
+  <p>You typed: <span id="output"></span></p>
+  <div id="myBox">Hello there! I'm in a green box</div>
+  <script>
+    const hoverBox = document.getElementById('hoverBox');
+
+    hoverBox.addEventListener('mouseover', function () {
+      hoverBox.style.backgroundColor = 'lightblue';
+      hoverBox.textContent = 'Yay, you hovered!';
+    });
+
+    hoverBox.addEventListener('mouseout', function () {
+      hoverBox.style.backgroundColor = 'lightgrey';
+      hoverBox.textContent = 'Hover Over Me!';
+    });
+
+    const myInput = document.getElementById('myInput');
+    const outputSpan = document.getElementById('output');
+
+    myInput.addEventListener('keyup', function (event) {
+      outputSpan.textContent = event.target.value; // Show current input value
+      if (event.key === 'Enter') {
+        alert('You pressed Enter!');
+      }
+    });
+    let myBox = document.getElementById('myBox');
+    myBox.style.backgroundColor = 'forestgreen'; // Changes background
+    myBox.style.fontSize = '24px'; // Changes text size
+    myBox.style.color = '#fff'; // Changes text color
+    myBox.style.width = '50%'; // Changes the width
+    myBox.style.textAlign = 'center'; // Changes the text position
+    myBox.style.padding = '25px'; // Changes the padding
+    myBox.style.borderRadius = '10px'; // Changesborder radius
+    myBox.style.margin = '0 auto'; // Changes margin
+
+    alert("Welcome to my awesome portfolio!");
+  </script>
+</body>
+
+</html>

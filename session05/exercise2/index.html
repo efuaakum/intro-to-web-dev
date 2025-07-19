@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>JavaScript Files</title>
+  <link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bitcount+Grid+Single:wght@100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Color+Emoji&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap"
+    rel="stylesheet">
+</head>
+<body>
+  <!-- Your portfolio content -->
+  <p id="greetingMessage">Say Hello!</p>
+  <button id="greetButton">Click Me!</button>
+  <p>Weather Report: <span id="weatherLabel">fine</span></p>
+  <p id="weatherMessage">The weather is okay.</p>
+  <img src="../imgs/fine.png" alt="Today's Weather" id="weathImg"/>
+  <button id="weatherButton">Change Weather</button>
+  <script>
+      let buttonClicked = false;
+      let messagePara = document.getElementById('greetingMessage');
+      let clickBtn = document.getElementById('greetButton');
+      let weatherBtn = document.getElementById('weatherButton');
+      let weather = "fine";
+      let weathers = ["fine","sunny","snowy","thundery","windy","rainy"];
+
+      weatherBtn.addEventListener('click', function() {
+         let randomNumber = Math.floor(Math.random() * weathers.length);
+         weather = weathers[randomNumber];
+         weathImg.src=`../imgs/${weather}.png`;
+          document.getElementById('weatherLabel').textContent = weather;
+          if(weather == "sunny"){
+            weatherMessage.textContent = "Today is perfect for outdoor activities!";
+          }
+          else if(weather == "rainy"){
+            weatherMessage.textContent = "Don't forget your umbrella!";
+          }
+          else if(weather == "snowy"){
+            weatherMessage.textContent = "Time to build a snowman.";
+          }
+          else if(weather == "thundery"){
+            weatherMessage.textContent = "Thunder doesn't strike the same spot twice... Apparently.";
+          }
+          else if(weather == "windy"){
+            weatherMessage.textContent = "The best weather to fly kites.";
+          }
+          else{
+            weatherMessage.textContent = "The weather is okay.";
+          }
+      });
+
+      clickBtn.addEventListener('click', function() {
+          if(!buttonClicked) {
+            messagePara.className = "pacifico";
+            messagePara.textContent = "Welcome, awesome coder!";
+            clickBtn.textContent = "Hide Greeting";
+          }
+          else{
+            messagePara.classList.remove("pacifico");
+            messagePara.textContent = "Say Hello!";
+            clickBtn.textContent = "Click Me!";
+          }
+          buttonClicked = !buttonClicked;
+      });
+  </script>
+
+</body>
+
+</html>
