@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Hello Styled World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bitcount+Grid+Single:wght@100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Color+Emoji&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      font-size: 18px;
+      font-family: 'Lora', serif;
+      background-color: #F8F8F8;
+    }
+  </style>
+</head>
+
+<body id="main">
+  <h1>Click to change the color of the page</h1>
+  <button id="changeColorBtn">Change Page Color!</button>
+  <script>
+    let btn = document.getElementById('changeColorBtn');
+    let main = document.getElementById('main');
+    let on = true;
+     btn.addEventListener('click', function (event) {
+      if(on){
+        main.style.backgroundColor = "darkblue";
+        main.style.color = "lightblue";
+      }
+      else{
+        main.style.backgroundColor = "#F8F8F8";
+        main.style.color = "#000";
+      }
+      on = !on;
+     });
+  </script>
+</body>
+
+</html>

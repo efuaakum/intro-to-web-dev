@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Canvas Games</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-size: 18px;
+        font-family: 'Lora', serif;
+        background-color: #F8F8F8;
+      }
+      canvas { border: 2px solid #333; display: block; margin: 20px auto; }
+
+    </style>
+  </head>
+  <body>
+    <p style="text-align: center; font-size: 24px;">Score: <span id="scoreDisplay">0</span></p>
+    <canvas id="gameCanvas" width="400" height="300"></canvas>
+    <script>
+      let canvas = document.getElementById('gameCanvas');
+      let ctx = canvas.getContext('2d');
+      let scoreDisplay = document.getElementById('scoreDisplay');
+
+      let img = new Image();
+      img.src = 'imgs/basketball.png';
+
+      let score = 0;
+      let dotX = 50;
+      let dotY = 50;
+      let dotSize = 60;
+      let dotSpeed = 2; // How fast the dot moves
+
+      let isDot = false;
+
+      function drawDot() {
+        if(isDot){
+          ctx.fillStyle = 'hotpink';
+          ctx.fillRect(dotX, dotY, dotSize, dotSize);
+        }
+        else{
+          img.src = 'imgs/basketball.png';
+          ctx.drawImage(img, dotX, dotY, dotSize, dotSize);
+        }
+      }
+
+      function gameLoop() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear
+          // Update dot position
+          dotX += dotSpeed;
+          if (dotX > canvas.width) { // If dot goes off screen, reset
+              dotX = -dotSize;
+          }
+          drawDot(); // Draw
+          requestAnimationFrame(gameLoop); // Keep looping!
+      }
+      gameLoop(); // Start the game!
+
+      canvas.addEventListener('click', function(event) {
+        let mouseX = event.clientX - canvas.getBoundingClientRect().left;
+        let mouseY = event.clientY - canvas.getBoundingClientRect().top;
+
+        // Check if click is inside the dot
+        if (mouseX >= dotX && mouseX <= dotX + dotSize &&
+            mouseY >= dotY && mouseY <= dotY + dotSize) {
+            score++;
+            scoreDisplay.textContent = score;
+
+            // Move dot to a new random position after click
+            dotX = Math.random() * (canvas.width - dotSize);
+            dotY = Math.random() * (canvas.height - dotSize);
+        }
+    });
+    </script>
+  </body>
+</html>
